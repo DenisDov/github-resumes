@@ -1,11 +1,15 @@
 import SearchForm from "@/components/SearchForm";
+import { ModeToggle } from "@/components/ThemeToggle";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 export default function HomePage() {
   return (
     <Card className="p-10">
-      <h1 className="uppercase">My GitHub Resume</h1>
+      <div className="flex justify-between gap-4">
+        <h1 className="uppercase">My GitHub Resume</h1>
+        <ModeToggle />
+      </div>
       <Separator className="my-4" />
       <p className="mb-4">
         As a software startup owner, I truly appreciate it when individuals

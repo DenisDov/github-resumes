@@ -28,7 +28,9 @@ export default async function ResumePage({
           </Avatar>
         </div>
 
-        <h2 className="uppercase">Passionate github user</h2>
+        <h2 className="uppercase text-muted-foreground">
+          Passionate github user
+        </h2>
 
         <Separator className="my-4" />
 
@@ -60,7 +62,7 @@ export default async function ResumePage({
 
         <RepoDetails user={user.login} />
 
-        <p>
+        <p className="text-muted-foreground">
           {`This résumé is generated automatically using public information from
           the developer's GitHub account. The repositories are ordered by
           popularity based on a very simple popularity heuristic that defines

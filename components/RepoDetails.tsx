@@ -41,7 +41,9 @@ export async function RepoDetails({ user }: { user: string }) {
                 </a>
                 <span className="text-xs">{repo.developmentPeriod}</span>
               </div>
-              <p className="text-xs mb-4">{repo.language}</p>
+              <p className="text-xs mb-4 text-muted-foreground">
+                {repo.language}
+              </p>
               <p className="text-sm mb-4">{repo.description}</p>
               <p className="text-sm">{`This repository has ${repo.stars} stars and ${repo.forks} forks.`}</p>
 

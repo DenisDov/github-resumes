@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { fontSans } from "@/lib/fonts";
 import "@/styles/globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Github Resumes",
@@ -15,7 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={fontSans.variable}>
-        <main className="container mx-auto md:py-16 py-8">{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="container mx-auto md:py-16 py-8">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

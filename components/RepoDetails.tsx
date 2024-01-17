@@ -27,7 +27,7 @@ export async function RepoDetails({ user }: { user: string }) {
       <Separator className="my-4" />
 
       <div className="md:flex">
-        <div className="md:w-1/4">Latest repositories</div>
+        <div className="md:w-1/4 max-md:mb-4">Latest repositories</div>
         <div className="md:w-3/4">
           {repositoryInfo.map((repo: Repository) => (
             <div key={repo.name}>

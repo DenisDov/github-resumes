@@ -1,4 +1,4 @@
-import { UserLanguages } from "@/components/Languages";
+import { RepoDetails } from "@/components/RepoDetails";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -30,10 +30,34 @@ export default async function ResumePage({
 
         <h2 className="uppercase">Passionate github user</h2>
         <Separator className="my-4" />
-        <p>Website: {user.blog}</p>
-        <p>Public repos: {user.public_repos}</p>
-        <p>Created at: {formatDateToLocal(user.created_at)}</p>
-        <UserLanguages user={user.login} />
+        <div className="flex">
+          <div className="basis-1/4 shrink-0">Website</div>
+          <div className="flex-grow">
+            <a href={user.blog} target="blank">
+              {user.blog}
+            </a>
+          </div>
+        </div>
+        <Separator className="my-4" />
+        <div className="flex">
+          <div className="basis-1/4 shrink-0">Public repos</div>
+          <div className="flex-grow">{user.public_repos}</div>
+        </div>
+        <Separator className="my-4" />
+        <div className="flex">
+          <div className="basis-1/4 shrink-0">Created at</div>
+          <div className="flex-grow">{formatDateToLocal(user.created_at)}</div>
+        </div>
+        <Separator className="my-4" />
+
+        <RepoDetails user={user.login} />
+
+        <p>
+          This résumé is generated automatically using public information from
+          the developer's GitHub account. The repositories are ordered by
+          popularity based on a very simple popularity heuristic that defines
+          the popularity of a repository by its sum of watchers and forks.
+        </p>
       </Suspense>
     </Card>
   );

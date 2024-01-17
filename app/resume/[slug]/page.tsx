@@ -2,7 +2,7 @@ import { RepoDetails } from "@/components/RepoDetails";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { formatDateToLocal, getData, getInitials } from "@/lib/utils";
+import { formatDateToLocal, fetchData, getInitials } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
@@ -11,7 +11,7 @@ export default async function ResumePage({
 }: {
   params: { slug: string };
 }) {
-  const user = await getData(`https://api.github.com/users/${params.slug}`);
+  const user = await fetchData(`https://api.github.com/users/${params.slug}`);
 
   if (!user) {
     notFound();
@@ -29,7 +29,9 @@ export default async function ResumePage({
         </div>
 
         <h2 className="uppercase">Passionate github user</h2>
+
         <Separator className="my-4" />
+
         <div className="flex">
           <div className="basis-1/4 shrink-0">Website</div>
           <div className="flex-grow">
@@ -38,25 +40,29 @@ export default async function ResumePage({
             </a>
           </div>
         </div>
+
         <Separator className="my-4" />
+
         <div className="flex">
           <div className="basis-1/4 shrink-0">Public repos</div>
           <div className="flex-grow">{user.public_repos}</div>
         </div>
+
         <Separator className="my-4" />
         <div className="flex">
           <div className="basis-1/4 shrink-0">Created at</div>
           <div className="flex-grow">{formatDateToLocal(user.created_at)}</div>
         </div>
+
         <Separator className="my-4" />
 
         <RepoDetails user={user.login} />
 
         <p>
-          This résumé is generated automatically using public information from
+          {`This résumé is generated automatically using public information from
           the developer's GitHub account. The repositories are ordered by
           popularity based on a very simple popularity heuristic that defines
-          the popularity of a repository by its sum of watchers and forks.
+          the popularity of a repository by its sum of watchers and forks.`}
         </p>
       </Suspense>
     </Card>

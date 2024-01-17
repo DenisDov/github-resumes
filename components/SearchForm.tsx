@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 export default function SearchForm() {
   const router = useRouter();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.currentTarget);
     const nameValue = formData.get("name");
     router.push(`/resume/${nameValue}`);
   };

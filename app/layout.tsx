@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={fontSans.variable}>
-        <main className="container mx-auto md:py-16 py-4">{children}</main>
+        <main className="container mx-auto md:py-16 py-8">{children}</main>
       </body>
     </html>
   );

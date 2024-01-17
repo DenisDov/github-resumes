@@ -18,7 +18,7 @@ export default async function ResumePage({
   }
 
   return (
-    <Card className="p-10">
+    <Card className="md:p-10 p-4">
       <Suspense fallback={<div>Loading...</div>}>
         <div className="flex items-center justify-between">
           <h1 className="uppercase">{user.name}</h1>
@@ -32,9 +32,9 @@ export default async function ResumePage({
 
         <Separator className="my-4" />
 
-        <div className="flex">
-          <div className="basis-1/4 shrink-0">Website</div>
-          <div className="flex-grow">
+        <div className="md:flex">
+          <div className="md:w-1/4">Website</div>
+          <div className="md:w-3/4">
             <a href={user.blog} target="blank">
               {user.blog}
             </a>
@@ -44,14 +44,16 @@ export default async function ResumePage({
         <Separator className="my-4" />
 
         <div className="flex">
-          <div className="basis-1/4 shrink-0">Public repos</div>
-          <div className="flex-grow">{user.public_repos}</div>
+          <div className="w-1/2 md:w-1/4">Public repos</div>
+          <div className="w-1/2 md:w-1/4">{user.public_repos}</div>
         </div>
 
         <Separator className="my-4" />
         <div className="flex">
-          <div className="basis-1/4 shrink-0">Created at</div>
-          <div className="flex-grow">{formatDateToLocal(user.created_at)}</div>
+          <div className="w-1/2 md:w-1/4">Created at</div>
+          <div className="w-1/2 md:w-1/4">
+            {formatDateToLocal(user.created_at)}
+          </div>
         </div>
 
         <Separator className="my-4" />

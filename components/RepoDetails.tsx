@@ -13,8 +13,8 @@ export async function RepoDetails({ user }: { user: string }) {
   return (
     <>
       <div className="flex">
-        <div className="basis-1/4 shrink-0">Languages</div>
-        <div className="flex-grow">
+        <div className="w-1/2 md:w-1/4">Languages</div>
+        <div className="w-1/2 md:w-1/4">
           <ul>
             {languageWithPercentage.map((lang) => (
               <li key={lang.name}>
@@ -26,9 +26,9 @@ export async function RepoDetails({ user }: { user: string }) {
       </div>
       <Separator className="my-4" />
 
-      <div className="flex">
-        <div className="basis-1/4 shrink-0">Latest repositories</div>
-        <div className="flex-grow">
+      <div className="md:flex">
+        <div className="md:w-1/4">Latest repositories</div>
+        <div className="md:w-3/4">
           {repositoryInfo.map((repo: Repository) => (
             <div key={repo.name}>
               <div className="flex justify-between">
